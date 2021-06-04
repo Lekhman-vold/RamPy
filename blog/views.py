@@ -6,6 +6,7 @@ from .models import Post, Comment
 from .forms import EmailPostForm, CommentForm
 from taggit.models import Tag
 
+
 def post_list(request, tag_slug=None):
     object_list = Post.published.all()
     tag = None
@@ -59,7 +60,6 @@ def post_detail(request, year, month, day, post):
                                                     'comment_form': comment_form})
 
 
-
 def post_share(request, post_id):
     # Retrieve post by id
     post = get_object_or_404(Post, id=post_id, status='published')
@@ -75,7 +75,7 @@ def post_share(request, post_id):
                                           post.get_absolute_url())
             subject = '{} ({}) recommends you reading "{}"'.format(cd['name'], cd['email'], post.title)
             message = 'Read "{}" at {}\n\n{}\'s comments: {}'.format(post.title, post_url, cd['name'], cd['comments'])
-            send_mail(subject, message, 'admin@myblog.com',
+            send_mail(subject, message, 'rampy265@ukr.net',
  [cd['to']])
             sent = True
     else:
