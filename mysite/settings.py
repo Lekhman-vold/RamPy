@@ -1,6 +1,7 @@
 from pathlib import Path
 import dj_database_url
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -64,15 +65,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+from mysite.config.config import *
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'rampy',
-        'USER': 'naruto',
-        'PASSWORD': 'voloda2000',
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'NAME': NAME_DB,
+        'USER': USER_DB,
+        'PASSWORD': PASSWORD_DB,
+        'HOST': HOST,
+        'PORT': PORT,
     }
 }
 
@@ -125,9 +128,9 @@ MEDIA_URL = '/media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_HOST = 'smtp.ukr.net'
-EMAIL_HOST_USER = 'rampy265@ukr.net'
-EMAIL_HOST_PASSWORD = 'GsjrCotdAOcckrpZ'
-EMAIL_PORT = 465
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST = EMAIL_HOST_CONFIG
+EMAIL_HOST_USER = EMAIL_HOST_USER_CONFIG
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD_CONFIG
+EMAIL_PORT = EMAIL_PORT_CONFIG
+EMAIL_USE_TLS = EMAIL_USE_TLS_CONFIG
+EMAIL_USE_SSL = EMAIL_USE_TLS_CONFIG
