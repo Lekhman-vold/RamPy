@@ -1,6 +1,7 @@
 from pathlib import Path
 import dj_database_url
 import os
+from mysite.config.config import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -10,7 +11,7 @@ _PATH = os.path.abspath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i*c0t0nok0(n+j3jax8hov==8!*=b=t_qi6=j6-7u^3it0&9$q'
+SECRET_KEY = SECRET_KEY_CONFIG
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -65,7 +66,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-from mysite.config.config import *
 
 
 DATABASES = {
